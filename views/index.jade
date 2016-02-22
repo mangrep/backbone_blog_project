@@ -1,5 +1,35 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html(lang='en')
+  head
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
+    meta(charset='UTF-8')
+    title Backbone Sample App
+  body
+    .container
+      h1 Backbone Sample App
+      table.table
+        thead
+          tr
+            th Author
+            th Title
+            th URL
+            th Action
+          tr
+            td
+              input.form-control.author-input
+            td
+              input.form-control.title-input
+            td
+              input.form-control.url-input
+            td
+              button.btn.btn-primary.add-blog Add
+        tbody.blogs-list
+    script.blogs-list-template(type='text/template').
+      <td><span class="author"><%= author %></span></td>
+      <td><span class="title"><%= title %></span></td>
+      <td><span class="url"><%= url %></span></td>
+      <td><button class="btn btn-warning edit-blog">Edit</button> <button class="btn btn-danger delete-blog">Delete</button><button class="btn btn-success update-blog" style="display:none">Update</button> <button class="btn btn-danger cancel" style="display:none">Cancel</button></td>
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/underscore/underscore.js')
+    script(src='bower_components/backbone/backbone.js')
+    script(src='javascripts/script.js')
